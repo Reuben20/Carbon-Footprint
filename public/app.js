@@ -1,94 +1,73 @@
 var validator = true
-let tarjeta = document.getElementById('m-1').addEventListener('click',()=>{
-  if(validator){
-    validator = false
-    div()
-  }else{
-    div_reverse()
-  }
-})
 
-let boton = document.getElementById('controller').addEventListener('click',()=>{
-  if(validator){
-    validator = false
-    div()
-  }else{
-    div_reverse()
-  }
-})
+function move_animation(){
+  let event_array = [document.getElementById('m-1'),document.getElementById('controller')].forEach(el => el.addEventListener('click',() =>{
+    if(validator){
+      move_right()
+    }else{
+      move_left()
+    }
+  }))
+}
 
-function div_reverse(){
+move_animation()
+
+function move_left(){
   let div = document.getElementById("scroll")
   let line_1 = document.getElementById("m-1")
   let p1 = document.getElementById('p1')
   let p2 = document.getElementById('p2')
   let video = document.getElementById("video1")
 
-    p1.style.visibility = "hidden"
-    p2.style.visibility = "hidden"
-    video.style.visibility = "hidden"
+  p1.style.visibility = "hidden"
+  p2.style.visibility = "hidden"
+  video.style.visibility = "hidden"
 
-    p1.style.position = "absolute"
-    p2.style.position = "absolute"
-    video.style.position = "absolute"
+  p1.style.position = "absolute"
+  p2.style.position = "absolute"
+  video.style.position = "absolute"
 
-    p1.style.opacity = "0"
-    p1.style.opacity = "0"
-    p2.style.opacity = "0"
-    video.style.opacity = "0"
+  p1.style.opacity = "0"
+  p1.style.opacity = "0"
+  p2.style.opacity = "0"
+  video.style.opacity = "0"
 
-    validator = true
-    let x = 100
-    let y = 100
-    let inter = setInterval(()=>{
-      y = y - 0.5
-      if(y >= 0){
-        line_1.style.left = y + "%"
-      }
-
+  validator = true
+  let x = 100
+  let inter = setInterval(()=>{
     if(x >= 0){
       x = x - 0.5
-      let cadena = x.toString()
-      div.style.width = cadena + "%"
+      line_1.style.left = x + "%"
+      div.style.width = x + "%"
     }
-    if(x == 0){
-      line_1.style.left = "-1%%"
-      inter2_reverse()
+    if(x <= 0){
+      line_1.style.left = "-1%"
       window.clearInterval(inter)
     }
   },0.1)
-
 }
 
-function inter2_reverse(){
-}
 
-/* PAgina 1*/
-function div(){
+function move_right(){
   let div = document.getElementById("scroll")
   let line_1 = document.getElementById("m-1")
   let x = 0
-  let y = 0
   let inter = setInterval(()=>{
-    y = y + 0.5
-    if(y <= 100){
-      line_1.style.left = y + "%"
-    }
-
     if(x <= 99.5){
       x = x + 0.5
-      let cadena = x.toString()
-      div.style.width = cadena + "%"
+      line_1.style.left = x + "%"
+      div.style.width = x + "%"
     }
     if(x == 100){
       line_1.style.left = "95%"
-      inter2()
+      text_draw()
+      validator = false
       window.clearInterval(inter)
     }
   },0.1)
 }
 
-function inter2(){
+function text_draw(){
   let p1 = document.getElementById('p1')
   let p2 = document.getElementById('p2')
   let video = document.getElementById("video1")
@@ -103,24 +82,13 @@ function inter2(){
 
   console.log("llegaste hasta aqui")
   let x = 0
-  let inter2 = setInterval(()=>{
+  let i_2 = setInterval(()=>{
     x = x + 0.1
-    let cadena = x.toString()
-    p1.style.opacity = cadena
-    p2.style.opacity = cadena
-    video.style.opacity = cadena
+    p1.style.opacity = x
+    p2.style.opacity = x
+    video.style.opacity = x
       if(x >= 1){
-        window.clearInterval(inter2)
+        window.clearInterval(i_2)
       }
   },60)
 }
-
-
-/*
-  OTRA FUNCION
-*/
-
-
-
-
-
