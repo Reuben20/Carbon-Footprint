@@ -34,7 +34,7 @@ function move_left(){
 
   validator = true
   let x = 100
-  let inter = setInterval(()=>{
+  let i_1 = setInterval(()=>{
     if(x >= 0){
       x = x - 0.5
       line_1.style.left = x + "%"
@@ -42,7 +42,7 @@ function move_left(){
     }
     if(x <= 0){
       line_1.style.left = "-1%"
-      window.clearInterval(inter)
+      window.clearInterval(i_1)
     }
   },0.1)
 }
@@ -52,7 +52,7 @@ function move_right(){
   let div = document.getElementById("scroll")
   let line_1 = document.getElementById("m-1")
   let x = 0
-  let inter = setInterval(()=>{
+  let i_1 = setInterval(()=>{
     if(x <= 99.5){
       x = x + 0.5
       line_1.style.left = x + "%"
@@ -62,7 +62,7 @@ function move_right(){
       line_1.style.left = "95%"
       text_draw()
       validator = false
-      window.clearInterval(inter)
+      window.clearInterval(i_1)
     }
   },0.1)
 }
@@ -71,16 +71,12 @@ function text_draw(){
   let p1 = document.getElementById('p1')
   let p2 = document.getElementById('p2')
   let video = document.getElementById("video1")
-
   p1.style.position = "relative"
   p2.style.position = "relative"
   video.style.position = "relative"
-
   p1.style.visibility = "visible"
   p2.style.visibility = "visible"
   video.style.visibility = "visible"
-
-  console.log("llegaste hasta aqui")
   let x = 0
   let i_2 = setInterval(()=>{
     x = x + 0.1
