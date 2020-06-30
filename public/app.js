@@ -77,3 +77,5 @@ function text_draw(){
     }
   },60)
 }
+
+/*Comment to try the python script*/
