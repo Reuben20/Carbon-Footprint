@@ -63,7 +63,9 @@ function move_right(){
 }
 
 function text_draw(){
-  let element_array = [document.getElementById('back'),document.getElementById('p1'),document.getElementById('p2'),document.getElementById("video1")]
+  let back = document.getElementById('back')
+  back.style.visibility = "visible"
+  let element_array = [document.getElementById('p1'),document.getElementById('p2'),document.getElementById("video1")]
   element_array.forEach(i => {
     i.style.position = "relative"
     i.style.visibility = "visible"
@@ -71,6 +73,7 @@ function text_draw(){
   let x = 0
   let i_2 = setInterval(()=>{
     x = x + 0.1
+    back.style.opacity = x
     element_array.forEach(i => i.style.opacity = x)
     if(x >= 1){
       window.clearInterval(i_2)
