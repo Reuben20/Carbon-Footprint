@@ -67,3 +67,5 @@ node_modules/
 
 #helper script
 .Up.py
+
+.gitignore
