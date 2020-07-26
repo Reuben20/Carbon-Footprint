@@ -184,8 +184,38 @@ iframe{
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1000px){
-  .content{
-    flex-direction: column;
-  }
+.pop-background{
+  background-color: black;
+  opacity: 0.6;
+  top: 0%;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  visibility: hidden;
+}
+
+.pop-about{
+  background-color: white;
+  border-radius: 30px;
+  height: 600px;
+  width: 600px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.pop-text{
+  position: absolute;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  visibility: hidden;
 }

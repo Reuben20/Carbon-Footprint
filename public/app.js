@@ -29,11 +29,15 @@ move_animation()
 
 function move_left(){
   let div = document.getElementById("scroll")
-  let element_array = [document.getElementById('p1'),document.getElementById('p2'),document.getElementById("video1")].forEach(i => {
-    i.style.visibility = "hidden"
-    i.style.position = "absolute"
-    i.style.opacity = "0"
-  })
+  let element_array = [
+    document.getElementById('p1'),
+    document.getElementById('p2'),
+    document.getElementById("video1")]
+    .forEach(i => {
+      i.style.visibility = "hidden"
+      i.style.position = "absolute"
+      i.style.opacity = "0"
+    })
   validator = true
   let x = 100
   let i_1 = setInterval(()=>{
@@ -65,7 +69,10 @@ function move_right(){
 function text_draw(){
   let back = document.getElementById('back')
   back.style.visibility = "visible"
-  let element_array = [document.getElementById('p1'),document.getElementById('p2'),document.getElementById("video1")]
+  let element_array = [
+    document.getElementById('p1'),
+    document.getElementById('p2'),
+    document.getElementById("video1")]
   element_array.forEach(i => {
     i.style.position = "relative"
     i.style.visibility = "visible"
@@ -81,4 +88,18 @@ function text_draw(){
   },60)
 }
 
-/*Comment to try the python script*/
+document.getElementById('about').addEventListener('click',()=>{
+  var element_array = [
+    document.getElementById('pop-background'),
+    document.getElementById('pop-about'),
+    document.getElementById('pop-text')]
+    .forEach(i => {i.style.visibility = "visible"})
+})
+
+document.getElementById('pop-background').addEventListener('click',()=>{
+  document.getElementById('pop-background').style.visibility = "hidden"
+  let element_array = [
+    document.getElementById('pop-about'),
+    document.getElementById('pop-text')]
+    .forEach(i => {i.style.visibility = "hidden"})
+})
